@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from django.urls import include
+from django.urls import include, path
+from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 
 from api.views import PostViewSet, GroupViewSet, CommentViewSet, FollowViewSet
@@ -14,6 +15,8 @@ router_v1.register(r'v1/follow', FollowViewSet, basename='follows')
 urlpatterns = [
     url(r'v1/', include('djoser.urls')),
     url(r'v1/', include('djoser.urls.jwt')),
-
+    path(r'v1/redoc/', TemplateView.as_view(template_name='redoc.html'),
+         name='redoc'
+         ),
 ]
 urlpatterns += router_v1.urls

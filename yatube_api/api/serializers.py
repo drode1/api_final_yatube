@@ -1,5 +1,4 @@
-from rest_framework import serializers, validators
-from rest_framework.relations import SlugRelatedField
+from rest_framework import relations, serializers, validators
 
 from posts.models import Comment, Follow, Group, Post, User
 
@@ -18,7 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
     """
     Сериализатор для постов.
     """
-    author = SlugRelatedField(slug_field='username', read_only=True)
+    author = relations.SlugRelatedField(slug_field='username', read_only=True)
 
     class Meta:
         fields = '__all__'
@@ -29,9 +28,8 @@ class CommentSerializer(serializers.ModelSerializer):
     """
     Сериализатор для комментариев пользователей.
     """
-    author = serializers.SlugRelatedField(
-        read_only=True, slug_field='username'
-    )
+    author = relations.SlugRelatedField(slug_field='username', read_only=True)
+    post = relations.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         fields = '__all__'
@@ -42,13 +40,13 @@ class FollowSerializer(serializers.ModelSerializer):
     """
     Сериализатор для подписок.
     """
-    user = serializers.SlugRelatedField(
+    user = relations.SlugRelatedField(
         read_only=True,
         slug_field='username',
         default=serializers.CurrentUserDefault(),
     )
 
-    following = serializers.SlugRelatedField(
+    following = relations.SlugRelatedField(
         queryset=User.objects.all(),
         slug_field='username',
     )

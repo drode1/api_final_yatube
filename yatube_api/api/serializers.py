@@ -1,8 +1,7 @@
-from rest_framework import serializers
-from rest_framework import validators
+from rest_framework import serializers, validators
 from rest_framework.relations import SlugRelatedField
 
-from posts.models import Comment, Post, Group, Follow, User
+from posts.models import Comment, Follow, Group, Post, User
 
 
 class GroupSerializer(serializers.ModelSerializer):

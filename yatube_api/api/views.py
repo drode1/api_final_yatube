@@ -14,7 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     serializer_class = PostSerializer
     pagination_class = pagination.LimitOffsetPagination
-    permission_classes = [IsAuthorOrReadOnly]
+    permission_classes = (IsAuthorOrReadOnly,)
 
     def get_queryset(self):
         if self.action == 'detail':
@@ -38,7 +38,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     Вью сет для работы с комментариями пользователей.
     """
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthorOrReadOnly]
+    permission_classes = (IsAuthorOrReadOnly,)
 
     def get_post(self):
         return get_object_or_404(Post, pk=self.kwargs['post_id'])

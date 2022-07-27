@@ -50,7 +50,8 @@ class CommentViewSet(viewsets.ModelViewSet):
         return self.get_post().comments
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class FollowViewSet(viewsets.GenericViewSet, mixins.ListModelMixin,
+                    mixins.CreateModelMixin):
     """
     Вью сет для работы с подписками пользователей.
     """

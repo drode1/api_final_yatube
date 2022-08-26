@@ -57,4 +57,4 @@ python3 manage.py runserver
 
 - Егор Ремезов
 - [Telegram](https://t.me/e_remezov)
-- Почта mr.drodel@gmail.com
+- [Почта](mr.drodel@gmail.com)

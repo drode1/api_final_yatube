@@ -1,4 +1,13 @@
 # Учебный проект API yatube
+Учебный проект по написанию и изучению Django Rest Framework. В рамках него можно делать запросы к API, что позволит публиковать новые посты пользователей, добавлять их в группу, а также, комментировать.
+
+### **Стек**
+
+![python version](https://img.shields.io/badge/Python-3.7-green)
+![django version](https://img.shields.io/badge/Django-2.2-green)
+![djangorestframework version](https://img.shields.io/badge/DRF-3.12-green)
+![simplejwt version](https://img.shields.io/badge/DRFsimplejwt-4.7-green)
+
 
 ### Как запустить проект:
 
@@ -56,5 +65,5 @@ python3 manage.py runserver
 ### Автор проекта
 
 - Егор Ремезов
-- [Telegram](https://t.me/e_remezov)
-- [Почта](mr.drodel@gmail.com)
+  - [Telegram](https://t.me/e_remezov)
+  - [Почта](mailto:mr.drodel@gmail.com>)
